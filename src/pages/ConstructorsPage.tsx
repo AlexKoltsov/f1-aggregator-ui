@@ -4,6 +4,7 @@ import {ColDef} from '@material-ui/data-grid';
 import axios from 'axios'
 import {IConstructor} from "../model/Constructor";
 import GeneralDataTable from "../components/GeneralDataTable";
+import {Typography} from "@material-ui/core";
 
 const columns: ColDef[] = [
     {
@@ -40,6 +41,8 @@ export default function ConstructorsPage() {
     }, [])
 
     return (
-        <GeneralDataTable isLoading={isLoading} rows={data} columns={columns}/>
-    );
+        <>
+            <Typography variant="h3">Constructors</Typography>
+            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+        </>    );
 }

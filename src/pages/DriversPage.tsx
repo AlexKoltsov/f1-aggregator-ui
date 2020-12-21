@@ -4,6 +4,7 @@ import {ColDef, ValueGetterParams} from '@material-ui/data-grid';
 import axios from 'axios'
 import {IDriver} from "../model/Driver";
 import GeneralDataTable from "../components/GeneralDataTable";
+import {Typography} from "@material-ui/core";
 
 const columns: ColDef[] = [
     {
@@ -61,6 +62,9 @@ export default function DriversPage() {
     }, [])
 
     return (
-        <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+        <>
+            <Typography variant="h3">Drivers</Typography>
+            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+        </>
     );
 }

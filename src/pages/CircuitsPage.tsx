@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 import {ColDef} from '@material-ui/data-grid';
 import axios from 'axios'
 import GeneralDataTable from "../components/GeneralDataTable";
-import { ICircuit } from '../model/Circuit';
+import {ICircuit} from '../model/Circuit';
+import {Typography} from "@material-ui/core";
 
 const columns: ColDef[] = [
     {
@@ -39,15 +40,14 @@ export default function ConstructorsPage() {
 
     useEffect(() => {
         api.get<ICircuit[]>('circuits')
-            .then(res => {
-                console.log(res.data)
-                setData(res.data)
-            })
+            .then(res => setData(res.data))
             .catch(error => console.error(error))
             .finally(() => setIsLoading(false))
     }, [])
 
     return (
-        <GeneralDataTable isLoading={isLoading} rows={data} columns={columns}/>
-    );
+        <>
+            <Typography variant="h3">Circuits</Typography>
+            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+        </>);
 }
