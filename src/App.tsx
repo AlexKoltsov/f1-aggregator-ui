@@ -9,12 +9,12 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: 'flex',
-            minHeight: '100vh',
+            height: '100vh'
         },
         toolbar: theme.mixins.toolbar,
         content: {
             flexGrow: 1,
-            padding: theme.spacing(3),
+            padding: theme.spacing(2),
         },
     }),
 );

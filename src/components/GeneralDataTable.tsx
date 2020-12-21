@@ -1,5 +1,4 @@
 import React from "react";
-import {CircularProgress} from "@material-ui/core";
 import {ColDef, DataGrid, RowsProp} from "@material-ui/data-grid";
 
 export interface GeneralDataTableProps {
@@ -10,12 +9,12 @@ export interface GeneralDataTableProps {
 
 export default function GeneralDataTable(props: GeneralDataTableProps) {
     return (
-        props.isLoading ?
-            <CircularProgress/> :
-            <DataGrid rows={props.rows}
-                      columns={props.columns}
-                      pageSize={10}
-                      rowsPerPageOptions={[10, 25, 50]}
-            />
+        <DataGrid rows={props.rows}
+                  columns={props.columns}
+                  pageSize={10}
+                  rowsPerPageOptions={[10, 25, 50]}
+                  loading={props.isLoading}
+                  autoHeight={true}
+        />
     );
 }
