@@ -4,7 +4,6 @@ import {ColDef} from '@material-ui/data-grid';
 import axios from 'axios'
 import GeneralDataTable from "../components/GeneralDataTable";
 import {Typography} from "@material-ui/core";
-import {sleeper} from "../utils/DeveloperUtils";
 import {IRace} from "../model/Race";
 
 const columns: ColDef[] = [
@@ -12,7 +11,6 @@ const columns: ColDef[] = [
         field: 'id',
         type: 'number',
         headerName: 'ID',
-        flex: 1,
         hide: true,
     },
     {
@@ -44,7 +42,6 @@ export default function DriversPage() {
 
     useEffect(() => {
         api.get<IRace[]>('races')
-            .then(sleeper(1000))
             .then(res => setData(res.data))
             .catch(error => console.error(error))
             .finally(() => setIsLoading(false))
