@@ -16,12 +16,12 @@ const columns: ColDef[] = [
     {
         field: 'name',
         headerName: 'Name',
-        flex: 3,
+        flex: 1,
     },
     {
         field: 'nationality',
         headerName: 'Nationality',
-        flex: 2,
+        flex: 1,
     },
 ];
 
@@ -43,6 +43,7 @@ export default function ConstructorsPage() {
     return (
         <>
             <Typography variant="h3">Constructors</Typography>
-            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
-        </>    );
+            <GeneralDataTable licenseStatus={"any"} rows={data} columns={columns} loading={isLoading}/>
+        </>
+    );
 }

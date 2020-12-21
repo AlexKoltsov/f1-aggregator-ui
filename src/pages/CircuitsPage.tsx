@@ -50,6 +50,6 @@ export default function ConstructorsPage() {
     return (
         <>
             <Typography variant="h3">Circuits</Typography>
-            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+            <GeneralDataTable licenseStatus={"any"} rows={data} columns={columns} loading={isLoading}/>
         </>);
 }

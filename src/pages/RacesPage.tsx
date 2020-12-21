@@ -50,7 +50,7 @@ export default function DriversPage() {
     return (
         <>
             <Typography variant="h3">Races</Typography>
-            <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
+            <GeneralDataTable licenseStatus={"any"} rows={data} columns={columns} loading={isLoading}/>
         </>
     );
 }
