@@ -13,6 +13,7 @@ const columns: ColDef[] = [
         type: 'number',
         headerName: 'ID',
         flex: 1,
+        hide: true,
     },
     {
         field: 'round',
