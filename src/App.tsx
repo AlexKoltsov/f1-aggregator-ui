@@ -1,19 +1,37 @@
 import React from 'react';
 import './App.css';
 import MainContainer from './components/MainContainer';
-import NavBar from "./components/Navbar";
 import {BrowserRouter as Router} from "react-router-dom"
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {NavBar} from "./components/Navbar";
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+            minHeight: '100vh',
+        },
+        toolbar: theme.mixins.toolbar,
+        content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+        },
+    }),
+);
 
 function App() {
+    const classes = useStyles();
     return (
-        <>
-            <Router>
-                <NavBar/>
-                <div style={{height: "90vh"}}>
-                    <MainContainer/>
+        <Router>
+            <div className={classes.root}>
+                <div className={classes.toolbar}>
+                    <NavBar/>
                 </div>
-            </Router>
-        </>
+                <main className={classes.content}>
+                    <MainContainer/>
+                </main>
+            </div>
+        </Router>
     )
 }
 
