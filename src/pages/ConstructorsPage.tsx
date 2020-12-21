@@ -5,6 +5,7 @@ import axios from 'axios'
 import {IConstructor} from "../model/Constructor";
 import GeneralDataTable from "../components/GeneralDataTable";
 import {Typography} from "@material-ui/core";
+import {sleeper} from "../utils/DeveloperUtils";
 
 const columns: ColDef[] = [
     {
@@ -35,6 +36,7 @@ export default function ConstructorsPage() {
 
     useEffect(() => {
         api.get<IConstructor[]>('constructors')
+            .then(sleeper(1000))
             .then(res => setData(res.data))
             .catch(error => console.error(error))
             .finally(() => setIsLoading(false))

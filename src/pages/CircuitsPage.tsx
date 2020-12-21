@@ -5,6 +5,7 @@ import axios from 'axios'
 import GeneralDataTable from "../components/GeneralDataTable";
 import {ICircuit} from '../model/Circuit';
 import {Typography} from "@material-ui/core";
+import {sleeper} from "../utils/DeveloperUtils";
 
 const columns: ColDef[] = [
     {
@@ -40,10 +41,13 @@ export default function ConstructorsPage() {
 
     useEffect(() => {
         api.get<ICircuit[]>('circuits')
+            .then(sleeper(1000))
             .then(res => setData(res.data))
             .catch(error => console.error(error))
             .finally(() => setIsLoading(false))
     }, [])
+
+    setTimeout(resolve => resolve, 2000)
 
     return (
         <>
