@@ -11,6 +11,7 @@ export default function NavBar() {
                 <Tabs value={false} variant={'scrollable'}>
                     <Tab label="Drivers" component={Link} to="/drivers"/>
                     <Tab label="Constructors" component={Link} to="/constructors"/>
+                    <Tab label="Circuits" component={Link} to="/circuits"/>
                 </Tabs>
             </Toolbar>
         </AppBar>
