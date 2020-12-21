@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {DataGrid, ColDef} from '@material-ui/data-grid';
-import {useEffect, useState} from "react";
+import {useEffect, useState} from 'react';
+import {ColDef} from '@material-ui/data-grid';
 import axios from 'axios'
 import {IConstructor} from "../model/Constructor";
-import {CircularProgress} from "@material-ui/core";
+import GeneralDataTable from "../components/GeneralDataTable";
 
 const columns: ColDef[] = [
     {
@@ -40,12 +40,6 @@ export default function ConstructorsPage() {
     }, [])
 
     return (
-        isLoading ?
-            <CircularProgress/> :
-            <DataGrid rows={data}
-                      columns={columns}
-                      pageSize={10}
-                      rowsPerPageOptions={[10, 25, 50]}
-            />
+        <GeneralDataTable isLoading={isLoading} rows={data} columns={columns}/>
     );
 }

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {DataGrid, ColDef, ValueGetterParams} from '@material-ui/data-grid';
-import {useEffect, useState} from "react";
+import {useEffect, useState} from 'react';
+import {ColDef, ValueGetterParams} from '@material-ui/data-grid';
 import axios from 'axios'
 import {IDriver} from "../model/Driver";
-import {CircularProgress} from '@material-ui/core';
+import GeneralDataTable from "../components/GeneralDataTable";
 
 const columns: ColDef[] = [
     {
@@ -61,12 +61,6 @@ export default function DriversPage() {
     }, [])
 
     return (
-        isLoading ?
-            <CircularProgress/> :
-            <DataGrid rows={data}
-                      columns={columns}
-                      pageSize={10}
-                      rowsPerPageOptions={[10, 25, 50]}
-            />
+        <GeneralDataTable rows={data} columns={columns} isLoading={isLoading}/>
     );
 }
