@@ -63,6 +63,12 @@ const pages = [
         url: "/constructors",
         icon: <GroupIcon/>,
     },
+    {
+        id: 4,
+        text: "Races",
+        url: "/races",
+        icon: <MapIcon/>,
+    },
 ]
 
 export function NavBar() {
