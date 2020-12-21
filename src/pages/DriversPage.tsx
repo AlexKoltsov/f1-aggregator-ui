@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {ColDef, ValueGetterParams} from '@material-ui/data-grid';
+import {ColDef} from '@material-ui/data-grid';
 import axios from 'axios'
 import {IDriver} from "../model/Driver";
 import GeneralDataTable from "../components/GeneralDataTable";
@@ -24,15 +24,6 @@ const columns: ColDef[] = [
         field: 'fullName',
         headerName: 'Full name',
         flex: 3,
-        valueGetter: (params: ValueGetterParams) => `${params.getValue('forename')} ${params.getValue('surname')}`,
-    },
-    {
-        field: 'forename',
-        hide: true,
-    },
-    {
-        field: 'surname',
-        hide: true,
     },
     {
         field: 'nationality',
@@ -40,7 +31,7 @@ const columns: ColDef[] = [
         flex: 2,
     },
     {
-        field: 'dob',
+        field: 'birthDate',
         type: 'date',
         headerName: 'Birth date',
         flex: 2,
